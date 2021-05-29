@@ -1,6 +1,6 @@
 {
   "name": "proxy-image",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "A simple proxy to load CORS blocked images",
   "main": "index.js",
   "scripts": {

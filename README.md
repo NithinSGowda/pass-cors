@@ -1,4 +1,4 @@
-# **imageproxy**
+# **proxy-image**
 **A simple proxy to load CORS blocked images**  
 
 Must be used in an express server environment
