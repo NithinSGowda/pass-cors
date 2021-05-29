@@ -15,31 +15,40 @@ function makeid(length) {
 
 router.get('/', async (req, res) => {
     data=req.query
-    n=1
-    uri = ''
-    for(param in data){
-        if(n==1){
-            uri+=data[param]
-        }else{
-            uri+=`&${param}=${data[param]}`
+    if(data.url){
+        n=1
+        uri = ''
+        for(param in data){
+            if(n==1){
+                uri+=data[param]
+            }else{
+                uri+=`&${param}=${data[param]}`
+            }
+            n+=1
         }
-        n+=1
+        // console.log(uri);
+        res.setHeader('Access-Control-Allow-Origin', '*')
+        res.setHeader('Access-Control-Allow-Credentials', true)
+        try{
+            url = new URL(uri)
+            var ext = url.pathname.split('.')
+            filename=`\\${makeid(10)}.${ext[ext.length - 1]}`
+            request(uri).pipe(fs.createWriteStream(__dirname + filename)).on('close', ()=>{
+                res.sendFile(__dirname+filename,()=>{
+                    fs.unlinkSync(__dirname+filename)
+                })
+            });
+        }catch(err){
+          console.log(err);
+        }
+    }else{
+        res.setHeader("Content-Type","application/json")
+        res.json({
+            "error": "404",
+            "desc": "Enter URL in the format /proxy?url='yourURLHere'"
+        })
     }
-    // console.log(uri);
-    res.setHeader('Access-Control-Allow-Origin', '*')
-    res.setHeader('Access-Control-Allow-Credentials', true)
-    try{
-        url = new URL(uri)
-        var ext = url.pathname.split('.')
-        filename=`\\${makeid(10)}.${ext[ext.length - 1]}`
-        request(uri).pipe(fs.createWriteStream(__dirname + filename)).on('close', ()=>{
-            res.sendFile(__dirname+filename,()=>{
-                fs.unlinkSync(__dirname+filename)
-            })
-        });
-    }catch(err){
-      console.log(err);
-    }
+    
 })
 
 
