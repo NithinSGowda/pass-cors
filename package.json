@@ -1,5 +1,5 @@
 {
-  "name": "imageproxy",
+  "name": "proxy-image",
   "version": "1.0.0",
   "description": "A simple proxy to load CORS blocked images",
   "main": "index.js",
@@ -8,9 +8,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/NithinSGowda/imageproxy.git"
+    "url": "git+https://github.com/NithinSGowda/proxy-image.git"
   },
   "keywords": [
+    "proxy-image",
+    "cors-image",
+    "image-cors",
     "imageproxy",
     "image-proxy",
     "image",
@@ -20,7 +23,11 @@
   "author": "Nithin S",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/NithinSGowda/imageproxy/issues"
+    "url": "https://github.com/NithinSGowda/proxy-image/issues"
   },
-  "homepage": "https://github.com/NithinSGowda/imageproxy#readme"
+  "homepage": "https://github.com/NithinSGowda/proxy-image#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "request": "^2.88.2"
+  }
 }

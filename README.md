@@ -4,7 +4,7 @@
 Must be used in an express server environment
 
 ```console
-$ npm install imageproxy
+$ npm install proxy-image
 ```
 
 <br/>
@@ -18,8 +18,8 @@ const app = express()
 
 
 //Main
-const imageproxy = require('imageproxy')
-app.use('/imageproxy', imageproxy);  //You can customise the route name
+const proxy = require('proxy-image')
+app.use('/proxy', proxy);  //You can customise the route name
 
 
 //Boilerplate
@@ -35,12 +35,12 @@ app.listen(process.env.PORT||8080)
 
 Before 
 ```html
-<img src="https://corsblockedimage.com/proxy.png">
+<img src="https://corsblockedimage.com/cat.png">
 ```
 
 After
 ```html
-<img src="/imageproxy?url='https://corsblockedimage.com/proxy.png'">
+<img src="/proxy?url='https://corsblockedimage.com/cat.png'">
 ```
 
 
