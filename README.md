@@ -52,11 +52,11 @@ Before
 
 After
 ```html
-<img src="/proxy?url='https://corsblockedimage.com/cat.png'">
+<img src="/proxy?url=https://corsblockedimage.com/cat.png">
 
-<script src="/proxy?url='https://corsblockedscript.com/sometool.js'"></script>
+<script src="/proxy?url=https://corsblockedscript.com/sometool.js"></script>
 
-<link href="/proxy?url='https://corsblockedcss.com/style.css'" rel="stylesheet">
+<link href="/proxy?url=https://corsblockedcss.com/style.css" rel="stylesheet">
 ```
 
 <br/>
